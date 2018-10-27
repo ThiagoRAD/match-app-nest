@@ -28,3 +28,6 @@ Content-Type: application/json
   "name": "Alexander Hamilton",
   "description": "Founding Father"
 }
+
+### Delete Profile
+DELETE http://localhost:3000/profiles/{{$global.createdProfileId}}

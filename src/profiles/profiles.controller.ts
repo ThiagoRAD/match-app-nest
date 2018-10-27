@@ -20,12 +20,12 @@ export class ProfilesController {
     return this.profilesService.create(createProfileDTO);
   }
   @Put(':id')
-  updateProfile(@Body() updateProfileDto: UpdateProfileDto, @Param('id') id: string) {
+  update(@Body() updateProfileDto: UpdateProfileDto, @Param('id') id: string) {
     return this.profilesService.update(updateProfileDto, id);
   }
   @Delete(':id')
   @HttpCode(HttpStatus.NO_CONTENT)
-  deleteProfile(@Param('id') id: string) {
-    return { id };
+  remove(@Param('id') id: string) {
+    return this.profilesService.remove(id);
   }
 }

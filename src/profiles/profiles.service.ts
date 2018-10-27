@@ -42,4 +42,7 @@ export class ProfilesService {
     profile.description = updateProfileDto.description;
     return profile;
   }
+  remove(id: string) {
+    this.profiles = this.profiles.filter((profile) => profile.id !== id);
+  }
 }
