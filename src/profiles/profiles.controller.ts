@@ -1,4 +1,4 @@
-import { Controller, Get, Query, Param, Post, Body, Put, Delete, HttpCode, HttpStatus } from '@nestjs/common';
+import { Controller, Get, Param, Post, Body, Put, Delete, HttpCode, HttpStatus } from '@nestjs/common';
 import { CreateProfileDto } from './dto/create-profile.dto';
 import { UpdateProfileDto } from './dto/update-profile-dto';
 import { ProfilesService } from './profiles.service';
@@ -12,8 +12,8 @@ export class ProfilesController {
     return this.profilesService.findAll();
   }
   @Get(':id')
-  findProfileById(@Param('id') id: string) {
-    return { id, name: 'John Doe' };
+  findOne(@Param('id') id: string) {
+    return this.profilesService.findOne(id);
   }
   @Post()
   createProfile(@Body() createProfileDTO: CreateProfileDto) {

@@ -1,6 +1,13 @@
-GET http://localhost:3000/profiles?age=20
+### Get Profile
+# @name getProfiles
+GET http://localhost:3000/profiles
 
-GET http://localhost:3000/profiles/1
+{{
+  $global.profileId=response.parsedBody[0].id;
+}}
+
+### Get Profile By ID
+GET http://localhost:3000/profiles/{{$global.profileId}}
 
 POST http://localhost:3000/profiles
 Content-Type: application/json
