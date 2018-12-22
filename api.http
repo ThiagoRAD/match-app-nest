@@ -12,15 +12,19 @@ GET http://localhost:3000/profiles/{{$global.profileId}}
 POST http://localhost:3000/profiles
 Content-Type: application/json
 
+{{
+  $global.createdProfileId=response.parsedBody.id;
+}}
 {
   "name": "John Doe",
   "description": "Software Engineer"
 }
 
-PUT http://localhost:3000/profiles/1
+
+PUT http://localhost:3000/profiles/{{$global.createdProfileId}}
 Content-Type: application/json
 
 {
-  "name": "John Doe",
-  "description": "Senior Software Engineer"
+  "name": "Alexander Hamilton",
+  "description": "Founding Father"
 }
