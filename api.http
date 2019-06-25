@@ -1,1 +1,3 @@
-GET http://localhost:3000/profiles
+GET http://localhost:3000/profiles?age=20
+
+GET http://localhost:3000/profiles/1
