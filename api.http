@@ -8,6 +8,7 @@ GET http://localhost:3000/profiles
 ### Get Profile By ID
 GET http://localhost:3000/profiles/{{$global.profileId}}
 
+### Create Profile
 POST http://localhost:3000/profiles
 Content-Type: application/json
 
