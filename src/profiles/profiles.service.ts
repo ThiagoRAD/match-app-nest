@@ -40,13 +40,17 @@ export class ProfilesService {
   update(updateProfileDto: UpdateProfileDto, id: string) {
     const profile = this.profiles.find((profile) => profile.id === id);
     if (!profile) {
-      return {};
+      throw new NotFoundException(`Profile with ID ${id} not found`);
     }
     profile.name = updateProfileDto.name;
     profile.description = updateProfileDto.description;
     return profile;
   }
   remove(id: string) {
+    const profile = this.profiles.find((profile) => profile.id === id);
+    if (!profile) {
+      throw new NotFoundException(`Profile with ID ${id} not found`);
+    }
     this.profiles = this.profiles.filter((profile) => profile.id !== id);
   }
 }
