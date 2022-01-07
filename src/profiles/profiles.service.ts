@@ -34,12 +34,12 @@ export class ProfilesService {
     return newProfile;
   }
   update(updateProfileDto: UpdateProfileDto, id: string) {
-    const profileIndex = this.profiles.findIndex((profile) => profile.id === id);
-    if (profileIndex === -1) {
+    const profile = this.profiles.find((profile) => profile.id === id);
+    if (!profile) {
       return {};
     }
-    const updatedProfile = { ...this.profiles[profileIndex], ...updateProfileDto };
-    this.profiles[profileIndex] = updatedProfile;
-    return updatedProfile;
+    profile.name = updateProfileDto.name;
+    profile.description = updateProfileDto.description;
+    return profile;
   }
 }
