@@ -1,27 +1,24 @@
-### Get Profile
-GET http://localhost:3000/profiles
-
-{{
-  $global.profileId=response.parsedBody[0].id;
-}}
-
+### 
+# @name getProfiles
+GET http://localhost:3000/profiles HTTP/1.1
+//reply[1]
 ### Get Profile By ID
-GET http://localhost:3000/profiles/{{$global.profileId}}
+GET http://localhost:3000/profiles/{{getProfiles.response.body.$[0].id}} HTTP/1.1
 
-### Create Profile
-POST http://localhost:3000/profiles
+### 
+# @name createProfile
+POST http://localhost:3000/profiles HTTP/1.1
 Content-Type: application/json
 
-{{
-  $global.createdProfileId=response.parsedBody.id;
-}}
 {
   "name": "John Doe",
   "description": "Software Engineer"
 }
 
+###
+# @name updateProfile
 
-PUT http://localhost:3000/profiles/{{$global.createdProfileId}}
+PUT http://localhost:3000/profiles/{{createProfile.response.body.id}} HTTP/1.1
 Content-Type: application/json
 
 {
@@ -30,4 +27,5 @@ Content-Type: application/json
 }
 
 ### Delete Profile
-DELETE http://localhost:3000/profiles/{{$global.createdProfileId}}
+# @name deleteProfile
+DELETE http://localhost:3000/profiles/{{createProfile.response.body.id}} HTTP/1.1

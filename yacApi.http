@@ -1,0 +1,33 @@
+### Get Profile
+GET http://localhost:3000/profiles
+
+{{
+  $global.profileId=response.parsedBody[0].id;
+}}
+
+### Get Profile By ID
+GET http://localhost:3000/profiles/{{$global.profileId}}
+
+### Create Profile
+POST http://localhost:3000/profiles
+Content-Type: application/json
+
+{{
+  $global.createdProfileId=response.parsedBody.id;
+}}
+{
+  "name": "John Doe",
+  "description": "Software Engineer"
+}
+
+
+PUT http://localhost:3000/profiles/{{$global.createdProfileId}}
+Content-Type: application/json
+
+{
+  "name": "Alexander Hamilton",
+  "description": "Founding Father"
+}
+
+### Delete Profile
+DELETE http://localhost:3000/profiles/{{$global.createdProfileId}}
