@@ -9,3 +9,11 @@ Content-Type: application/json
   "name": "John Doe",
   "description": "Software Engineer"
 }
+
+PUT http://localhost:3000/profiles/1
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "description": "Senior Software Engineer"
+}
