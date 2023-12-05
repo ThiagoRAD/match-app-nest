@@ -7,7 +7,7 @@ GET http://localhost:3000/profiles/{{getProfiles.response.body.$[0].id}} HTTP/1.
 
 
 ### Get Profile by non existing ID
-GET http://localhost:3000/profiles/non-existing-id HTTP/1.1
+GET http://localhost:3000/profiles/5c93cecf-6175-4cb8-b326-edeb7dabd8e2 HTTP/1.1
 //reply[404]
 
 ### 
