@@ -20,4 +20,7 @@ export class ProfilesService {
       description: `You think you know VIM? Try Neovim. I'll make your modal dreams come true. Want to escape the matrix and explore the perfect keyboard shortcut for love?`,
     },
   ];
+  findAll() {
+    return this.profiles;
+  }
 }
