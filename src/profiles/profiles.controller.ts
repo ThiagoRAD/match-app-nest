@@ -21,11 +21,7 @@ export class ProfilesController {
   }
   @Put(':id')
   updateProfile(@Body() updateProfileDto: UpdateProfileDto, @Param('id') id: string) {
-    return {
-      id,
-      name: updateProfileDto.name,
-      description: updateProfileDto.description,
-    };
+    return this.profilesService.update(updateProfileDto, id);
   }
   @Delete(':id')
   @HttpCode(HttpStatus.NO_CONTENT)
